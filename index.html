@@ -1,63 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>7 Tage Inzidenz Erlangen</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
-  </head>
-  <body>
-    <section class="hero is-info is-fullheight is-bold">
-      <div class="hero-body">
-        <div class="container box has-text-centered">
-          <h1 class="title has-text-dark">7 Tage Inzidenz Erlangen</h1>
-          <br>
-          <h2 id="7days" class="subtitle has-text-dark button is-static"></h2>
-          <hr />
-          <div class="columns is-gapless">
-            <p class="column">
-              Quelle:
-              <a href="https://www.rki.de/DE/Home/homepage_node.html">RKI</a>
-            </p>
-            <p class="column">Stand: <span id="date"> </span></p>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>🦠 COVID19 7-Tage-Inzidenz Erlangen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+</head>
+
+<body>
+  <section class="hero is-info is-fullheight is-bold">
+    <div class="hero-body">
+      <div class="container box has-text-centered">
+        <h1 class="title has-text-dark">🦠 COVID19 7-Tage-Inzidenz Erlangen</h1>
+        <br>
+        <h2 id="7days" class="subtitle has-text-dark button is-static"></h2>
+        <hr />
+        <div class="columns is-gapless">
+          <p class="column">
+            Quelle:
+            <a href="https://www.rki.de/DE/Home/homepage_node.html">RKI</a>
+          </p>
+          <p class="column">Stand: <span id="date"> </span></p>
         </div>
       </div>
-    </section>
-  </body>
-  <script>
-    var DateTime = luxon.DateTime;
-    axios
-      .get(
-        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
-      )
-      .then((res) => {
-        document.getElementById("7days").innerText =
-          res.data.records[0].fields.cases7_per_100k;
-      });
+    </div>
+  </section>
+</body>
+<script>
+  var DateTime = luxon.DateTime;
+  axios
+    .get(
+      "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
+    )
+    .then((res) => {
+      document.getElementById("7days").innerText =
+        res.data.records[0].fields.cases7_per_100k;
+    });
 
-    let date;
+  let date;
 
-    axios
-      .get(
-        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
-      )
-      .then((res) => {
-        date = res.data.records[0].fields.last_update;
-        console.log(date);
+  axios
+    .get(
+      "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
+    )
+    .then((res) => {
+      date = res.data.records[0].fields.last_update;
+      console.log(date);
 
-        document.getElementById("date").innerText = DateTime.fromISO(
-          date
-        ).toLocaleString({ locale: "de" });
-      });
-  </script>
+      document.getElementById("date").innerText = DateTime.fromISO(
+        date
+      ).toLocaleString({ locale: "de" });
+    });
+</script>
 
-  <style>
-    #7days {
-    }
-  </style>
 </html>
