@@ -51,7 +51,7 @@
       )
       .then((res) => {
         document.getElementById("7days").innerText =
-          res.data.records[0].fields.cases7_per_100k;
+          res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".",",");
       });
 
     let date;
