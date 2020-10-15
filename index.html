@@ -50,15 +50,15 @@
           res.data.records[0].fields.cases7_per_100k;
       });
 
-    let date;
+  let date;
 
-    axios
-      .get(
-        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
-      )
-      .then((res) => {
-        date = res.data.records[0].fields.last_update;
-        console.log(date);
+  axios
+    .get(
+      "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
+    )
+    .then((res) => {
+      date = res.data.records[0].fields.last_update;
+      console.log(date);
 
         document.getElementById("date").innerText = DateTime.fromISO(
           date
@@ -67,8 +67,4 @@
       });
   </script>
 
-  <style>
-    #7days {
-    }
-  </style>
 </html>
