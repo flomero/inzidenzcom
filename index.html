@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8" />
-    <title>🦠 7 Tage Inzidenz Erlangen</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="bar.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
-  </head>
-  <body>
-    <section class="hero is-info is-fullheight is-bold">
-      <div class="hero-body">
-        <div class="container box has-text-centered">
-          <h1 class="title has-text-dark">🦠 7 Tage Inzidenz Erlangen </h1>
-          <h2 id="7days" class="subtitle has-text-dark button is-static mt-5"></h2>
-          <hr />
-          <div class="columns is-gapless">
-            <p class="column">
-              Quelle:
-              <a href="https://www.rki.de/DE/Home/homepage_node.html">RKI</a>
-            </p>
-            <p class="column">Stand: <span id="date"> </span></p>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>COVID19 7-Tage-Inzidenz Erlangen</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+  <script src="bar.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
+  <style>
+    #7days {
+      font-size: 56pt;
+    }
+  </style>
+</head>
+
+<body>
+  <section class="hero is-info is-fullheight is-bold">
+    <div class="hero-body">
+      <div class="container box has-text-centered">
+        <h1 class="subtitle has-text-dark">🦠 COVID19 7-Tage-Inzidenz Erlangen</h1>
+        <br>
+        <h2 id="7days" class="has-text-dark title is-static"></h2><span class="text">Fälle in den letzten 7 Tagen pro 100.000 Einwohner:innen</span>
+        <hr />
+        <div class="columns is-gapless">
+          <p class="column">
+            Quelle:
+            <a href="https://www.rki.de/DE/Home/homepage_node.html">RKI</a>
+          </p>
+          <p class="column">Stand: <span id="date"> </span></p>
         </div>
       </div>
     </section>
@@ -50,15 +54,15 @@
           res.data.records[0].fields.cases7_per_100k;
       });
 
-  let date;
+    let date;
 
-  axios
-    .get(
-      "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
-    )
-    .then((res) => {
-      date = res.data.records[0].fields.last_update;
-      console.log(date);
+    axios
+      .get(
+        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
+      )
+      .then((res) => {
+        date = res.data.records[0].fields.last_update;
+        console.log(date);
 
         document.getElementById("date").innerText = DateTime.fromISO(
           date
@@ -67,4 +71,5 @@
       });
   </script>
 
+</body>
 </html>
