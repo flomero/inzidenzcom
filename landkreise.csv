@@ -1,0 +1,413 @@
+﻿Name;Short name
+Vechta;LK Vechta
+Mönchengladbach;SK Mönchengladbach
+Lippe;LK Lippe
+Darmstadt-Dieburg;LK Darmstadt-Dieburg
+Hersfeld-Rotenburg;LK Hersfeld-Rotenburg
+Altenkirchen (Westerwald);LK Altenkirchen
+Heilbronn;SK Heilbronn
+Enzkreis;LK Enzkreis
+München;SK München
+Rosenheim;LK Rosenheim
+Passau;LK Passau
+Amberg-Sulzbach;LK Amberg-Sulzbach
+Würzburg;SK Würzburg
+Miltenberg;LK Miltenberg
+Main-Spessart;LK Main-Spessart
+Barnim;LK Barnim
+Bautzen;LK Bautzen
+Berlin Treptow-Köpenick;SK Berlin Treptow-Köpenick
+Berlin Pankow;SK Berlin Pankow
+Kiel;SK Kiel
+Rotenburg (Wümme);LK Rotenburg (Wümme)
+Emsland;LK Emsland
+Bottrop;SK Bottrop
+Steinfurt;LK Steinfurt
+Rhein-Hunsrück-Kreis;LK Rhein-Hunsrück-Kreis
+Landau in der Pfalz;SK Landau i.d.Pfalz
+Kusel;LK Kusel
+Karlsruhe;LK Karlsruhe
+Freiburg im Breisgau;SK Freiburg i.Breisgau
+Landsberg am Lech;LK Landsberg a.Lech
+Tirschenreuth;LK Tirschenreuth
+Forchheim;LK Forchheim
+Mittelsachsen;LK Mittelsachsen
+Börde;LK Börde
+Harz;LK Harz
+Eichsfeld;LK Eichsfeld
+Flensburg;SK Flensburg
+Ostholstein;LK Ostholstein
+Rendsburg-Eckernförde;LK Rendsburg-Eckernförde
+Mettmann;LK Mettmann
+Heinsberg;LK Heinsberg
+Tübingen;LK Tübingen
+Altötting;LK Altötting
+Neustadt a.d. Waldnaab;LK Neustadt a.d.Waldnaab
+Sächsische Schweiz-Osterzgebirge;LK Sächsische Schweiz-Osterzgebirge
+Ilm-Kreis;LK Ilm-Kreis
+Berlin Reinickendorf;SK Berlin Reinickendorf
+Lübeck;SK Lübeck
+Diepholz;LK Diepholz
+Holzminden;LK Holzminden
+Euskirchen;LK Euskirchen
+Hochsauerlandkreis;LK Hochsauerlandkreis
+Neuwied;LK Neuwied
+Westerwaldkreis;LK Westerwaldkreis
+Vulkaneifel;LK Vulkaneifel
+Schwäbisch Hall;LK Schwäbisch Hall
+Breisgau-Hochschwarzwald;LK Breisgau-Hochschwarzwald
+Erding;LK Erding
+Neumarkt i.d. OPf.;LK Neumarkt i.d.OPf.
+Regensburg;LK Regensburg
+Fürth;LK Fürth
+Merzig-Wadern;LK Merzig-Wadern
+Rostock;SK Rostock
+Görlitz;LK Görlitz
+Leipzig;SK Leipzig
+Altmarkkreis Salzwedel;LK Altmarkkreis Salzwedel
+Dithmarschen;LK Dithmarschen
+Friesland;LK Friesland
+Offenbach am Main;SK Offenbach
+Konstanz;LK Konstanz
+Weiden i.d. OPf.;SK Weiden i.d.OPf.
+Bayreuth;LK Bayreuth
+Coburg;LK Coburg
+Rhön-Grabfeld;LK Rhön-Grabfeld
+Schmalkalden-Meiningen;LK Schmalkalden-Meiningen
+Greiz;LK Greiz
+Heidekreis;LK Heidekreis
+Kleve;LK Kleve
+Städteregion Aachen;StadtRegion Aachen
+Rheinisch-Bergischer Kreis;LK Rheinisch-Bergischer Kreis
+Frankfurt am Main;SK Frankfurt am Main
+Vogelsbergkreis;LK Vogelsbergkreis
+Waldeck-Frankenberg;LK Waldeck-Frankenberg
+Mayen-Koblenz;LK Mayen-Koblenz
+Nürnberg;SK Nürnberg
+Nürnberger Land;LK Nürnberger Land
+Eisenach;SK Eisenach
+Schaumburg;LK Schaumburg
+Borken;LK Borken
+Göppingen;LK Göppingen
+Neckar-Odenwald-Kreis;LK Neckar-Odenwald-Kreis
+Mühldorf a. Inn;LK Mühldorf a.Inn
+Weißenburg-Gunzenhausen;LK Weißenburg-Gunzenhausen
+Aschaffenburg;LK Aschaffenburg
+Unterallgäu;LK Unterallgäu
+Cottbus;SK Cottbus
+Erfurt;SK Erfurt
+Gera;SK Gera
+Segeberg;LK Segeberg
+Hameln-Pyrmont;LK Hameln-Pyrmont
+Bremerhaven;SK Bremerhaven
+Wuppertal;SK Wuppertal
+Düren;LK Düren
+Gütersloh;LK Gütersloh
+Hochtaunuskreis;LK Hochtaunuskreis
+Marburg-Biedenkopf;LK Marburg-Biedenkopf
+Fulda;LK Fulda
+Bad Kreuznach;LK Bad Kreuznach
+Lörrach;LK Lörrach
+Landshut;LK Landshut
+Rottal-Inn;LK Rottal-Inn
+Cham;LK Cham
+Oberallgäu;LK Oberallgäu
+Elbe-Elster;LK Elbe-Elster
+Mansfeld-Südharz;LK Mansfeld-Südharz
+Lüneburg;LK Lüneburg
+Aurich;LK Aurich
+Leer;LK Leer
+Oldenburg;LK Oldenburg
+Wesel;LK Wesel
+Bergstraße;LK Bergstraße
+Rheingau-Taunus-Kreis;LK Rheingau-Taunus-Kreis
+Germersheim;LK Germersheim
+Mainz-Bingen;LK Mainz-Bingen
+Donau-Ries;LK Donau-Ries
+Prignitz;LK Prignitz
+Kyffhäuserkreis;LK Kyffhäuserkreis
+Saale-Holzland-Kreis;LK Saale-Holzland-Kreis
+Berlin Mitte;SK Berlin Mitte
+Uelzen;LK Uelzen
+Delmenhorst;SK Delmenhorst
+Emden;SK Emden
+Köln;SK Köln
+Oberbergischer Kreis;LK Oberbergischer Kreis
+Kassel;SK Kassel
+Ludwigsburg;LK Ludwigsburg
+Karlsruhe;SK Karlsruhe
+Schwandorf;LK Schwandorf
+Augsburg;SK Augsburg
+Augsburg;LK Augsburg
+Vorpommern-Rügen;LK Vorpommern-Rügen
+Vorpommern-Greifswald;LK Vorpommern-Greifswald
+Saalekreis;LK Saalekreis
+Suhl;SK Suhl
+Solingen;SK Solingen
+Höxter;LK Höxter
+Speyer;SK Speyer
+Schwarzwald-Baar-Kreis;LK Schwarzwald-Baar-Kreis
+Tuttlingen;LK Tuttlingen
+Kulmbach;LK Kulmbach
+Lichtenfels;LK Lichtenfels
+Fürth;SK Fürth
+Dillingen a.d. Donau;LK Dillingen a.d.Donau
+Günzburg;LK Günzburg
+Brandenburg an der Havel;SK Brandenburg a.d.Havel
+Märkisch-Oderland;LK Märkisch-Oderland
+Spree-Neiße;LK Spree-Neiße
+Chemnitz;SK Chemnitz
+Zwickau;LK Zwickau
+Meißen;LK Meißen
+Grafschaft Bentheim;LK Grafschaft Bentheim
+Wittmund;LK Wittmund
+Oberhausen;SK Oberhausen
+Minden-Lübbecke;LK Minden-Lübbecke
+Trier-Saarburg;LK Trier-Saarburg
+Kaiserslautern;SK Kaiserslautern
+Mannheim;SK Mannheim
+Straubing;SK Straubing
+Straubing-Bogen;LK Straubing-Bogen
+Herzogtum Lauenburg;LK Herzogtum Lauenburg
+Wolfsburg;SK Wolfsburg
+Unna;LK Unna
+Darmstadt;SK Darmstadt
+Lahn-Dill-Kreis;LK Lahn-Dill-Kreis
+Limburg-Weilburg;LK Limburg-Weilburg
+Neustadt an der Weinstraße;SK Neustadt a.d.Weinstraße
+Alzey-Worms;LK Alzey-Worms
+Saarlouis;LK Saarlouis
+Magdeburg;SK Magdeburg
+Göttingen;LK Göttingen
+Lüchow-Dannenberg;LK Lüchow-Dannenberg
+Osterholz;LK Osterholz
+Stade;LK Stade
+Krefeld;SK Krefeld
+Viersen;LK Viersen
+Rhein-Erft-Kreis;LK Rhein-Erft-Kreis
+Hamm;SK Hamm
+Soest;LK Soest
+Offenbach;LK Offenbach
+Gießen;LK Gießen
+Cochem-Zell;LK Cochem-Zell
+Mainz;SK Mainz
+München;LK München
+Landshut;SK Landshut
+Kelheim;LK Kelheim
+Aschaffenburg;SK Aschaffenburg
+Ostprignitz-Ruppin;LK Ostprignitz-Ruppin
+Teltow-Fläming;LK Teltow-Fläming
+Leipzig;LK Leipzig
+Wittenberg;LK Wittenberg
+Weimar;SK Weimar
+Peine;LK Peine
+Cloppenburg;LK Cloppenburg
+Münster;SK Münster
+Koblenz;SK Koblenz
+Bad Dürkheim;LK Bad Dürkheim
+Baden-Baden;SK Baden-Baden
+Ingolstadt;SK Ingolstadt
+Regensburg;SK Regensburg
+Kronach;LK Kronach
+Rostock;LK Rostock
+Unstrut-Hainich-Kreis;LK Unstrut-Hainich-Kreis
+Schleswig-Flensburg;LK Schleswig-Flensburg
+Goslar;LK Goslar
+Harburg;LK Harburg
+Bremen;SK Bremen
+Herford;LK Herford
+Dortmund;SK Dortmund
+Heidenheim;LK Heidenheim
+Rottweil;LK Rottweil
+Ulm;SK Ulm
+Haßberge;LK Haßberge
+Memmingen;SK Memmingen
+Dessau-Roßlau;SK Dessau-Roßlau
+Halle (Saale);SK Halle
+Hildburghausen;LK Hildburghausen
+Saale-Orla-Kreis;LK Saale-Orla-Kreis
+Berlin Friedrichshain-Kreuzberg;SK Berlin Friedrichshain-Kreuzberg
+Steinburg;LK Steinburg
+Stormarn;LK Stormarn
+Bielefeld;SK Bielefeld
+Südwestpfalz;LK Südwestpfalz
+Stuttgart;SK Stuttgart
+Kempten (Allgäu);SK Kempten
+Ostallgäu;LK Ostallgäu
+Oberspreewald-Lausitz;LK Oberspreewald-Lausitz
+Berlin Steglitz-Zehlendorf;SK Berlin Steglitz-Zehlendorf
+Celle;LK Celle
+Verden;LK Verden
+Warendorf;LK Warendorf
+Herne;SK Herne
+Wetteraukreis;LK Wetteraukreis
+Ahrweiler;LK Ahrweiler
+Trier;SK Trier
+Pirmasens;SK Pirmasens
+Böblingen;LK Böblingen
+Rastatt;LK Rastatt
+Rhein-Neckar-Kreis;LK Rhein-Neckar-Kreis
+Zollernalbkreis;LK Zollernalbkreis
+Dachau;LK Dachau
+Ebersberg;LK Ebersberg
+Starnberg;LK Starnberg
+Traunstein;LK Traunstein
+Weilheim-Schongau;LK Weilheim-Schongau
+Neu-Ulm;LK Neu-Ulm
+Mecklenburgische Seenplatte;LK Mecklenburgische Seenplatte
+Weimarer Land;LK Weimarer Land
+Berlin Spandau;SK Berlin Spandau
+Wolfenbüttel;LK Wolfenbüttel
+Essen;SK Essen
+Siegen-Wittgenstein;LK Siegen-Wittgenstein
+Calw;LK Calw
+Rosenheim;SK Rosenheim
+Fürstenfeldbruck;LK Fürstenfeldbruck
+Passau;SK Passau
+Deggendorf;LK Deggendorf
+Neustadt a.d. Aisch-Bad Windsheim;LK Neustadt a.d.Aisch-Bad Windsheim
+Schweinfurt;SK Schweinfurt
+Oberhavel;LK Oberhavel
+Ludwigslust-Parchim;LK Ludwigslust-Parchim
+Jena;SK Jena
+Hildesheim;LK Hildesheim
+Nienburg (Weser);LK Nienburg (Weser)
+Oldenburg (Oldb);SK Oldenburg
+Mülheim an der Ruhr;SK Mülheim a.d.Ruhr
+Paderborn;LK Paderborn
+Ennepe-Ruhr-Kreis;LK Ennepe-Ruhr-Kreis
+Frankenthal (Pfalz);SK Frankenthal
+Donnersbergkreis;LK Donnersbergkreis
+Hof;SK Hof
+Neunkirchen;LK Neunkirchen
+Oder-Spree;LK Oder-Spree
+Erzgebirgskreis;LK Erzgebirgskreis
+Salzlandkreis;LK Salzlandkreis
+Cuxhaven;LK Cuxhaven
+Duisburg;SK Duisburg
+Rhein-Kreis Neuss;LK Rhein-Kreis Neuss
+Leverkusen;SK Leverkusen
+Kaiserslautern;LK Kaiserslautern
+Ortenaukreis;LK Ortenaukreis
+Biberach;LK Biberach
+Miesbach;LK Miesbach
+Amberg;SK Amberg
+Bayreuth;SK Bayreuth
+Potsdam;SK Potsdam
+Jerichower Land;LK Jerichower Land
+Wartburgkreis;LK Wartburgkreis
+Berlin Neukölln;SK Berlin Neukölln
+Berlin Lichtenberg;SK Berlin Lichtenberg
+Berlin Tempelhof-Schöneberg;SK Berlin Tempelhof-Schöneberg
+Northeim;LK Northeim
+Osnabrück;SK Osnabrück
+Bonn;SK Bonn
+Rhein-Sieg-Kreis;LK Rhein-Sieg-Kreis
+Gelsenkirchen;SK Gelsenkirchen
+Coesfeld;LK Coesfeld
+Recklinghausen;LK Recklinghausen
+Hagen;SK Hagen
+Rhein-Lahn-Kreis;LK Rhein-Lahn-Kreis
+Ludwigshafen am Rhein;SK Ludwigshafen
+Emmendingen;LK Emmendingen
+Waldshut;LK Waldshut
+Garmisch-Partenkirchen;LK Garmisch-Partenkirchen
+Coburg;SK Coburg
+Lindau (Bodensee);LK Lindau
+Schwerin;SK Schwerin
+Nordwestmecklenburg;LK Nordwestmecklenburg
+Gotha;LK Gotha
+Altenburger Land;LK Altenburger Land
+Pinneberg;LK Pinneberg
+Bochum;SK Bochum
+Main-Taunus-Kreis;LK Main-Taunus-Kreis
+Zweibrücken;SK Zweibrücken
+Südliche Weinstraße;LK Südliche Weinstraße
+Ostalbkreis;LK Ostalbkreis
+Freudenstadt;LK Freudenstadt
+Eichstätt;LK Eichstätt
+Hof;LK Hof
+Wunsiedel i. Fichtelgebirge;LK Wunsiedel i.Fichtelgebirge
+Ansbach;SK Ansbach
+Schwabach;SK Schwabach
+Anhalt-Bitterfeld;LK Anhalt-Bitterfeld
+Sonneberg;LK Sonneberg
+Nordfriesland;LK Nordfriesland
+Salzgitter;SK Salzgitter
+Region Hannover;Region Hannover
+Düsseldorf;SK Düsseldorf
+Bernkastel-Wittlich;LK Bernkastel-Wittlich
+Esslingen;LK Esslingen
+Heilbronn;LK Heilbronn
+Reutlingen;LK Reutlingen
+Bodenseekreis;LK Bodenseekreis
+Neuburg-Schrobenhausen;LK Neuburg-Schrobenhausen
+Bamberg;LK Bamberg
+Würzburg;LK Würzburg
+Kaufbeuren;SK Kaufbeuren
+Regionalverband Saarbrücken;LK Stadtverband Saarbrücken
+Plön;LK Plön
+Hamburg;SK Hamburg
+Wiesbaden;SK Wiesbaden
+Werra-Meißner-Kreis;LK Werra-Meißner-Kreis
+Heidelberg;SK Heidelberg
+Alb-Donau-Kreis;LK Alb-Donau-Kreis
+Berchtesgadener Land;LK Berchtesgadener Land
+Regen;LK Regen
+Dingolfing-Landau;LK Dingolfing-Landau
+Roth;LK Roth
+Uckermark;LK Uckermark
+Burgenlandkreis;LK Burgenlandkreis
+Berlin Charlottenburg-Wilmersdorf;SK Berlin Charlottenburg-Wilmersdorf
+Berlin Marzahn-Hellersdorf;SK Berlin Marzahn-Hellersdorf
+Gifhorn;LK Gifhorn
+Olpe;LK Olpe
+Main-Kinzig-Kreis;LK Main-Kinzig-Kreis
+Kassel;LK Kassel
+Hohenlohekreis;LK Hohenlohekreis
+Sigmaringen;LK Sigmaringen
+Bad Tölz-Wolfratshausen;LK Bad Tölz-Wolfratshausen
+Freising;LK Freising
+Kitzingen;LK Kitzingen
+Schweinfurt;LK Schweinfurt
+Aichach-Friedberg;LK Aichach-Friedberg
+Saarpfalz-Kreis;LK Saar-Pfalz-Kreis
+Havelland;LK Havelland
+Potsdam-Mittelmark;LK Potsdam-Mittelmark
+Stendal;LK Stendal
+Nordhausen;LK Nordhausen
+Braunschweig;SK Braunschweig
+Helmstedt;LK Helmstedt
+Ammerland;LK Ammerland
+Remscheid;SK Remscheid
+Märkischer Kreis;LK Märkischer Kreis
+Groß-Gerau;LK Groß-Gerau
+Odenwaldkreis;LK Odenwaldkreis
+Schwalm-Eder-Kreis;LK Schwalm-Eder-Kreis
+Eifelkreis Bitburg-Prüm;LK Bitburg-Prüm
+Worms;SK Worms
+Pforzheim;SK Pforzheim
+Bamberg;SK Bamberg
+Erlangen-Höchstadt;LK Erlangen-Höchstadt
+St. Wendel;LK Sankt Wendel
+Dahme-Spreewald;LK Dahme-Spreewald
+Vogtlandkreis;LK Vogtlandkreis
+Dresden;SK Dresden
+Sömmerda;LK Sömmerda
+Neumünster;SK Neumünster
+Wilhelmshaven;SK Wilhelmshaven
+Osnabrück;LK Osnabrück
+Wesermarsch;LK Wesermarsch
+Birkenfeld;LK Birkenfeld
+Rhein-Pfalz-Kreis;LK Rhein-Pfalz-Kreis
+Rems-Murr-Kreis;LK Rems-Murr-Kreis
+Main-Tauber-Kreis;LK Main-Tauber-Kreis
+Ravensburg;LK Ravensburg
+Pfaffenhofen a.d. Ilm;LK Pfaffenhofen a.d.Ilm
+Freyung-Grafenau;LK Freyung-Grafenau
+Erlangen;SK Erlangen
+Ansbach;LK Ansbach
+Bad Kissingen;LK Bad Kissingen
+Frankfurt (Oder);SK Frankfurt (Oder)
+Nordsachsen;LK Nordsachsen
+Saalfeld-Rudolstadt;LK Saalfeld-Rudolstadt
