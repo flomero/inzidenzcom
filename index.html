@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  <section class="hero is-info is-fullheight is-bold">
+  <section id="all" class="hero is-fullheight is-bold">
     <div class="hero-body">
       <div class="container box has-text-centered">
         <h1 class="subtitle has-text-dark">🦠 COVID-19 7-Tage-Inzidenz Erlangen</h1>
@@ -50,14 +50,29 @@
         "1.0": "rgba(26,  188, 156, .7)",
       },
     });
+    let daysdata;
+    var bg = document.getElementById('all');
+
     var DateTime = luxon.DateTime;
     axios
       .get(
         "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
       )
       .then((res) => {
-        document.getElementById("7days").innerText =
+        daysdata =
           res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".",",");
+          if (parseInt(daysdata) <= 35) {
+            bg.classList.add("is-success");
+            console.log("ja");
+            } else if (parseInt(daysdata) <= 50){
+            bg.classList.add("is-warning");
+            console.log("nein");
+            } else {
+            bg.classList.add("is-danger");
+            console.log("nein");
+            };
+        document.getElementById("7days").innerText = daysdata;
+        
       });
 
     let date;
