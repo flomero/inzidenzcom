@@ -110,8 +110,7 @@ window.addEventListener('resize', () => {
   height: calc(var(--vh, 1vh) * 100);
 }
 .hero.is-fullheight {
-    height: 100vh; /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100) !important;
+  min-height: calc(var(--vh, 1vh) * 100) !important;
 }
   </style>
 
