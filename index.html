@@ -41,7 +41,7 @@
     </section>
   </body>
   <script>
-    topbar.show();
+    topbar.show(); 
     topbar.config({
       barThickness: 5,
       barColors: {
@@ -92,14 +92,15 @@
       });
   </script>
   <style>
-    html{
-        min-height: -webkit-fill-available !important;
-        height: 100vh;
-        overflow: hidden;
-    }
-    body{
-        height: 100vh !important;
-    }
+    body {
+    height: 100vh;
+    height: -webkit-fill-available;
+}
+
+    html {
+    min-height: 100vh !important;
+    min-height: -webkit-fill-available !important;
+}
   </style>
 
 </body>
