@@ -23,7 +23,7 @@
 </head>
 
 <body>
-  <section id="all" class="hero is-fullheight is-bold">
+    <section id="all" class="hero is-fullheight is-bold">
     <div class="hero-body">
       <div class="container box has-text-centered">
         <h1 class="subtitle has-text-dark">🦠 COVID-19 7-Tage-Inzidenz Erlangen</h1>
@@ -50,6 +50,19 @@
         "1.0": "rgba(26,  188, 156, .7)",
       },
     });
+
+    // First we get the viewport height and we multiple it by 1% to get a value for a vh unit
+let vh = window.innerHeight * 0.01;
+// Then we set the value in the --vh custom property to the root of the document
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+// We listen to the resize event
+window.addEventListener('resize', () => {
+  // We execute the same script as before
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
     let daysdata;
     var bg = document.getElementById('all');
 
@@ -92,18 +105,9 @@
       });
   </script>
   <style>
-    html { height: 100%; }
-
-body {
-position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-}
-#all {
-  height: 100%;
+    .my-body {
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
 }
   </style>
 
