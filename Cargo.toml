@@ -1,0 +1,14 @@
+[package]
+name = "inzidenz"
+version = "0.1.0"
+authors = ["Vincent Woltmann <vincent.woltmann@protonmail.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+rocket = "0.4.5"
+rocket_contrib = { version = "0.4.5",  features = ["handlebars_templates"] }
+serde = { version = "1.0.117", features = ["derive"] }
+serde_json = { version = "1.0.59" }
+once_cell = "1.4.1"
