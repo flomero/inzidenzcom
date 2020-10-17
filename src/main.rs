@@ -21,9 +21,16 @@ fn search_form() -> Template {
 #[get("/<name>")]
 fn show_inzidenz(name: String) -> Template {
     let mut context: HashMap<&str, &str> = HashMap::new();
-    context.insert("city_long_name", &LANDKREISE.get().unwrap()[&name.to_ascii_lowercase()]);
-    context.insert("city_name", &name);
-    Template::render("result", &context)
+    match LANDKREISE.get().unwrap().get(&name.to_ascii_lowercase()) {
+        Some(city_long_name) => {
+            context.insert("city_long_name", &city_long_name);
+            context.insert("city_name", &name);
+            Template::render("result", &context)
+        }
+        None => {
+            search_form()
+        }
+    }
 }
 
 static LANDKREISE: OnceCell<HashMap<String, String>> = OnceCell::new();
@@ -39,7 +46,11 @@ struct Entry {
 fn main() {
     let landkreise_file = BufReader::new(File::open("static/landkreise.json").unwrap());
     LANDKREISE
-        .set(serde_json::from_reader::<_, Vec<Entry>>(landkreise_file).unwrap().into_iter().map(|entry| (entry.name.to_ascii_lowercase(), entry.long_name)).collect())
+        .set(
+            serde_json::from_reader::<_, Vec<Entry>>(landkreise_file)
+                .unwrap()
+                .into_iter()
+                .map(|entry| (entry.name.to_ascii_lowercase(), entry.long_name)).collect())
         .unwrap();
 
     rocket::ignite()
