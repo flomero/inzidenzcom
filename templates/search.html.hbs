@@ -72,6 +72,16 @@
     </div>
     </section>
   <script>
+    topbar.show(); 
+    topbar.config({
+      barThickness: 5,
+      barColors: {
+        0: "rgba(1,  188, 188, .7)",
+        ".3": "rgba(31,  128, 185, .7)",
+        "1.0": "rgba(26,  188, 156, .7)",
+      },
+    });
+
 let vh = window.innerHeight * 0.01;
 
 document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -110,7 +120,8 @@ fetch(url)
             item.setAttribute("href", data[i].Name.replace(' ', '+'));
       	    item.text = data[i].Name;
       	    dropdownList.appendChild(item);
-    	  }    
+        } 
+        topbar.hide();
     	  var results = [];
         var jets = new Jets({
           searchTag: '#locality-dropdown',
