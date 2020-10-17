@@ -4,43 +4,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta http-equiv="Pragma" content="no-cache" />
-    <meta name="robots" content="INDEX,FOLLOW" />
-    <meta http-equiv="content-Language" content="de" />
+  <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="description" content="Informationseite, die die 7-Tage-Inzidenz für COVID-19 in Erlangen (Bayern) anzeigt." />
     <meta name="keywords" content="Covid Corona Erlangen Bayern Inzidenz RKI" />
   <title>COVID19 7-Tage-Inzidenz Erlangen</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jets@0.14.1/jets.min.js"></script>
   <script src="bar.js"></script>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
+  <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🦠&lt;/text&gt;&lt;/svg&gt;">
   <style>
-    #7days {
-      font-size: 56pt;
+    html {
+      height: 100vh; 
+      height: calc(var(--vh, 1vh) * 100);
+      overflow: hidden
+    }
+    .hero.is-fullheight {
+      min-height: calc(var(--vh, 1vh) * 100) !important;
     }
   </style>
 </head>
 
 <body>
     <section id="all" class="hero is-fullheight is-bold">
-    <div class="hero-body">
+    <h1 class="is-size-2 has-text-centered">
+      Erfahre die Corona Inzidenzzahl deines Kreises:
+    </h1>
+    <div class="hero-body" style="flex-direction:col">
       <div class="container box has-text-centered">
-        <select id="locality-dropdown" name="locality" class="select">
-
-        </select>
+        <form class="dropdown is-active">
+          <div class="dropdown-trigger">
+            <div class="field is-expanded">
+              <div class="field has-addons">
+                <div class="control">
+                  <input
+                    id="locality-dropdown"
+                    type="search"
+                    class="input"
+                    autocomplete="off">
+                </div>
+                <p class="control">
+                  <button class="button is-info" id="go-button">
+                    Los!
+                  </button>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="dropdown-menu">
+            <div class="dropdown-content" id="dropdown-list">
+            </div>
+          </div>
+        </form>
       </div>
+    </div>
     </section>
-  </body>
   <script>
-let dropdown = document.getElementById('locality-dropdown');
-dropdown.length = 0;
+let dropdownList = document.getElementById('dropdown-list');
+let goButton = document.getElementById('go-button');
 
-let defaultOption = document.createElement('option');
-defaultOption.text = 'Choose State/Province';
-
-dropdown.add(defaultOption);
-dropdown.selectedIndex = 0;
 
 const url = 'landkreise.json';
 
@@ -48,21 +71,48 @@ fetch(url)
   .then(  
     function(response) {  
       if (response.status !== 200) {  
-        console.warn('Looks like there was a problem. Status Code: ' + 
-          response.status);  
+        console.warn('Looks like there was a problem. Status Code: ' + response.status);  
         return;  
       }
 
       // Examine the text in the response  
       response.json().then(function(data) {  
-        let option;
+        var item;
     
-    	for (let i = 0; i < data.length; i++) {
-          option = document.createElement('option');
-      	  option.text = data[i].Name;
-            option.value = data[i]['Short name'];
-      	  dropdown.add(option);
-    	}    
+    	  for (let i = 0; i < data.length; i++) {
+            item = document.createElement('a');
+            item.classList.add('dropdown-item');
+            item.setAttribute("href", data[i].Name.toLowerCase());
+      	    item.text = data[i].Name;
+      	    dropdownList.appendChild(item);
+    	  }    
+    	  var results = [];
+        var jets = new Jets({
+          searchTag: '#locality-dropdown',
+          contentTag: '#dropdown-list',
+          didSearch: () => {
+            results.length > 0 && results[0].classList.remove('is-active');
+            results =
+            Array.from(dropdownList.children)
+              .filter((element) =>
+                window.getComputedStyle(element).display !== "none");
+            if (results.length > 0) {
+              results[0].classList.add('is-active');
+              goButton.removeAttribute('disabled');
+            } else {
+              goButton.setAttribute('disabled', '');
+            }
+          }
+        });
+
+        let form = document.getElementsByTagName('form')[0];
+        form.addEventListener('submit', (event) => {
+          event.preventDefault();
+
+          if (results.length >= 1) {
+            window.location.href = results[0].getAttribute('href');
+          }
+        });
       });  
     }  
   )  
@@ -70,18 +120,6 @@ fetch(url)
     console.error('Fetch Error -', err);  
   });
   </script>
-  <style>
-    html {
-  height: 100vh; 
-  height: calc(var(--vh, 1vh) * 100);
-}
-.hero.is-fullheight {
-  min-height: calc(var(--vh, 1vh) * 100) !important;
-}
-  </style>
-
-</body>
-</html>
 
 </body>
 </html>
