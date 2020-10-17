@@ -71,6 +71,24 @@
       </div>
     </div>
     </section>
+
+    <div class="modal">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title">Inzidenzzahl</p>
+          <button class="delete" aria-label="close"></button>
+        </header>
+        <section class="modal-card-body">
+          Die 7-Tage-Inzidenz oder Inzidenzzahl ist die Anzahl von neuen Coronafällen der letzten 7 Tage pro 100.000 Einwohner:innen in einem Gebiet.
+          Sie ist ausschlaggebend für das Veranlassen weiterer Maßnahmen. <br> <br>
+          Bitte beachten Sie, dass nicht überall die Daten des RKI als Grundlage für Maßnahmen gelten und einzelne Orte und Bundesländer ihre eigenen Daten verwenden. Diese stehen uns leider nicht zur Verfügung.
+        </section>
+        <footer class="modal-card-foot">
+          <button class="button is-info okay">Okay</button>
+        </footer>
+      </div>
+    </div>
   <script>
     topbar.show(); 
     topbar.config({
@@ -171,6 +189,16 @@ document.querySelector('a#open-modal').addEventListener('click', function(event)
   html.classList.add('is-clipped');
 
   modal.querySelector('.modal-background').addEventListener('click', function(e) {
+    e.preventDefault();
+    modal.classList.remove('is-active');
+    html.classList.remove('is-clipped');
+  });
+  modal.querySelector('.delete').addEventListener('click', function(e) {
+    e.preventDefault();
+    modal.classList.remove('is-active');
+    html.classList.remove('is-clipped');
+  });
+  modal.querySelector('.okay').addEventListener('click', function(e) {
     e.preventDefault();
     modal.classList.remove('is-active');
     html.classList.remove('is-clipped');
