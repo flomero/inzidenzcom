@@ -27,13 +27,16 @@
 </head>
 
 <body>
-    <section id="all" class="hero is-fullheight is-bold">
-    <h1 class="is-size-2 has-text-centered">
-      Erfahre die Corona Inzidenzzahl deines Kreises:
-    </h1>
+    <section id="all" class="hero is-fullheight is-info is-bold">
     <div class="hero-body" style="flex-direction:col">
       <div class="container box has-text-centered">
-        <form class="dropdown is-active">
+        <h1 class="title has-text-centered pb-5 has-text-dark">
+            🦠 7-Tage-Inzidenz COVID-19
+        </h1>
+        <h3 class="subtitle has-text-dark">
+            Erfahre die aktuelle Inzidenzzahl deiner Stadt/deines Kreises:
+        </h3>
+        <form class="dropdown" id="dropdown">
           <div class="dropdown-trigger">
             <div class="field is-expanded">
               <div class="field has-addons">
@@ -42,7 +45,9 @@
                     id="locality-dropdown"
                     type="search"
                     class="input"
-                    autocomplete="off">
+                    autocomplete="off"
+                    onfocus="show()"
+                    onfocusout="hide()">
                 </div>
                 <p class="control">
                   <button class="button is-info" id="go-button">
@@ -61,6 +66,19 @@
     </div>
     </section>
   <script>
+let vh = window.innerHeight * 0.01;
+
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+window.addEventListener('resize', () => {
+  
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+
+      
 let dropdownList = document.getElementById('dropdown-list');
 let goButton = document.getElementById('go-button');
 
@@ -82,6 +100,7 @@ fetch(url)
     	  for (let i = 0; i < data.length; i++) {
             item = document.createElement('a');
             item.classList.add('dropdown-item');
+            item.classList.add('has-text-left');
             item.setAttribute("href", data[i].Name.toLowerCase());
       	    item.text = data[i].Name;
       	    dropdownList.appendChild(item);
@@ -119,7 +138,25 @@ fetch(url)
   .catch(function(err) {  
     console.error('Fetch Error -', err);  
   });
+
+  function show() {
+  document.getElementById("dropdown").classList.add("is-active");
+}
+function hide() {
+  document.getElementById("dropdown").classList.remove("is-active");
+}
   </script>
+
+<style>
+    html {
+  height: 100vh; 
+  height: calc(var(--vh, 1vh) * 100);
+}
+.hero.is-fullheight {
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+}
+  </style>
+
 
 </body>
 </html>
