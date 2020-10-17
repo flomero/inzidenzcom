@@ -30,6 +30,11 @@
           {{city_name}}</h1>
         <h2 id="7days" class="has-text-dark title is-static"></h2><span class="text">Fälle in den letzten 7 Tagen pro 100.000 Einwohner:innen</span>
         <div class="pt-5">
+          <div class="field">
+            <button class="button" id="share-button">
+              Teilen
+            </button>
+          </div>
           <a class="button" href="/">Für anderen Ort suchen</a>
         </div>
         <hr />
@@ -46,15 +51,16 @@
     </section>
   </body>
   <script>
-    topbar.show(); 
-    topbar.config({
-      barThickness: 5,
-      barColors: {
-        0: "rgba(1,  188, 188, .7)",
-        ".3": "rgba(31,  128, 185, .7)",
-        "1.0": "rgba(26,  188, 156, .7)",
-      },
-    });
+topbar.show(); 
+topbar.config({
+  barThickness: 5,
+  barColors: {
+    0: "rgba(1,  188, 188, .7)",
+    ".3": "rgba(31,  128, 185, .7)",
+    "1.0": "rgba(26,  188, 156, .7)",
+  },
+});
+
 
     
 let vh = window.innerHeight * 0.01;
@@ -77,20 +83,32 @@ window.addEventListener('resize', () => {
         "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q={{city_long_name}}&rows=10&facet=last_update&facet=name"
       )
       .then((res) => {
-        daysdata =
-          res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".",",");
-          if (parseInt(daysdata) <= 35) {
-            bg.classList.add("is-success");
-            console.log("ja");
-            } else if (parseInt(daysdata) <= 50){
-            bg.classList.add("is-warning");
-            console.log("nein");
-            } else {
-            bg.classList.add("is-danger");
-            console.log("nein");
-            };
+        let button = document.getElementById('share-button');
+        daysdata = res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".",",");
+        if (parseInt(daysdata) <= 35) {
+          bg.classList.add("is-success");
+          button.classList.add("is-success");
+        } else if (parseInt(daysdata) <= 50){
+          bg.classList.add("is-warning");
+          button.classList.add("is-warning");
+        } else {
+          bg.classList.add("is-danger");
+          button.classList.add("is-danger");
+        }
         document.getElementById("7days").innerText = daysdata;
-        
+        button.addEventListener("click", event => {
+          const url = document.location.href;
+          const title = "Inzidenzzahl {{city_name}}";
+          const nice_date = DateTime.fromISO(date).toLocaleString({ locale: "de" });
+          const text =
+`${daysdata} ist die aktuelle Inzidenzzahl für {{city_name}} (${nice_date}) 🦠
+Finde jetzt den aktuellen Wert für deinen Ort auf https://inzidenz.com/ und stay safe! 😷💙`;
+          if (navigator.share) {
+            navigator.share({ url, title, text }).then(() => {
+              console.log('Shared worked');
+            }).catch(console.error);
+          }
+        })        
       });
 
     let date;
