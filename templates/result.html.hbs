@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Pragma" content="no-cache" />
+    <meta name="robots" content="INDEX,FOLLOW" />
+    <meta http-equiv="content-Language" content="de" />
+    <meta name="description" content="Informationseite, die die 7-Tage-Inzidenz für COVID-19 in {{city_name}} anzeigt." />
+    <meta name="keywords" content="Covid Corona {{city_name}} Inzidenz RKI" />
+    <title>COVID19 7-Tage-Inzidenz {{city_name}}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
+  <script src="static/bar.js"></script>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
+  <style>
+    #7days {
+      font-size: 56pt;
+    }
+  </style>
+</head>
+
+<body>
+    <section id="all" class="hero is-fullheight is-bold">
+    <div class="hero-body">
+      <div class="container box has-text-centered">
+        <h1 class="subtitle has-text-dark">🦠 COVID-19 7-Tage-Inzidenz
+          {{city_name}}</h1>
+        <br>
+        <h2 id="7days" class="has-text-dark title is-static"></h2><span class="text">Fälle in den letzten 7 Tagen pro 100.000 Einwohner:innen</span>
+        <hr />
+        <div class="columns is-gapless">
+          <p class="column">
+            Quelle:
+            <a href="https://www.rki.de/DE/Home/homepage_node.html" rel="noopener" target="_blank">RKI</a>
+          </p>
+          <p class="column">Stand: <span id="date"> </span></p>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script>
+    topbar.show(); 
+    topbar.config({
+      barThickness: 5,
+      barColors: {
+        0: "rgba(1,  188, 188, .7)",
+        ".3": "rgba(31,  128, 185, .7)",
+        "1.0": "rgba(26,  188, 156, .7)",
+      },
+    });
+
+    
+let vh = window.innerHeight * 0.01;
+
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+window.addEventListener('resize', () => {
+  
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+});
+
+    let daysdata;
+    var bg = document.getElementById('all');
+
+    var DateTime = luxon.DateTime;
+    axios
+      .get(
+        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q={{city_long_name}}&rows=10&facet=last_update&facet=name"
+      )
+      .then((res) => {
+        daysdata =
+          res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".",",");
+          if (parseInt(daysdata) <= 35) {
+            bg.classList.add("is-success");
+            console.log("ja");
+            } else if (parseInt(daysdata) <= 50){
+            bg.classList.add("is-warning");
+            console.log("nein");
+            } else {
+            bg.classList.add("is-danger");
+            console.log("nein");
+            };
+        document.getElementById("7days").innerText = daysdata;
+        
+      });
+
+    let date;
+
+    axios
+      .get(
+        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
+      )
+      .then((res) => {
+        date = res.data.records[0].fields.last_update;
+        console.log(date);
+
+        document.getElementById("date").innerText = DateTime.fromISO(
+          date
+        ).toLocaleString({ locale: "de" });
+        topbar.hide();
+      });
+  </script>
+  <style>
+    html {
+  height: 100vh; 
+  height: calc(var(--vh, 1vh) * 100);
+}
+.hero.is-fullheight {
+  min-height: calc(var(--vh, 1vh) * 100) !important;
+}
+  </style>
+
+</body>
+</html>
