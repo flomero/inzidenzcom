@@ -34,7 +34,8 @@
             🦠 7-Tage-Inzidenz COVID-19
         </h1>
         <h3 class="subtitle has-text-dark">
-            Erfahre die aktuelle Inzidenzzahl deiner Stadt/deines Kreises:
+            Erfahre die aktuelle <a id="open-modal" class="has-text-dark" href="">ℹ Inzidenzzahl</a>
+            deiner Stadt/deines Kreises:
         </h3>
         <form class="dropdown" id="dropdown">
           <div class="dropdown-trigger">
@@ -65,6 +66,8 @@
         </form>
         <p class="pt-5">Stay safe and wear a mask! 😷</p>
         <p>Erstellt mit den Daten des <a href="https://rki.de" target="_blank" rel=“noopener noreferrer“>RKI</a> 💙</p>
+        <hr>
+        <a href="mailto:inzidenz@krisenkultur.de">Kontakt</a>
       </div>
     </div>
     </section>
@@ -148,6 +151,20 @@ fetch(url)
 function hide() {
   document.getElementById("dropdown").classList.remove("is-active");
 }
+
+document.querySelector('a#open-modal').addEventListener('click', function(event) {
+  event.preventDefault();
+  var modal = document.querySelector('.modal');  // assuming you have only 1
+  var html = document.querySelector('html');
+  modal.classList.add('is-active');
+  html.classList.add('is-clipped');
+
+  modal.querySelector('.modal-background').addEventListener('click', function(e) {
+    e.preventDefault();
+    modal.classList.remove('is-active');
+    html.classList.remove('is-clipped');
+  });
+});
   </script>
 
 <style>
