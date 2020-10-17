@@ -107,7 +107,7 @@ fetch(url)
             item = document.createElement('a');
             item.classList.add('dropdown-item');
             item.classList.add('has-text-left');
-            item.setAttribute("href", data[i].Name.toLowerCase());
+            item.setAttribute("href", data[i].Name.replace(' ', '+'));
       	    item.text = data[i].Name;
       	    dropdownList.appendChild(item);
     	  }    

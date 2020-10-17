@@ -21,10 +21,11 @@ fn search_form() -> Template {
 #[get("/<name>")]
 fn show_inzidenz(name: String) -> Template {
     let mut context: HashMap<&str, &str> = HashMap::new();
-    match LANDKREISE.get().unwrap().get(&name.to_ascii_lowercase()) {
+    let city_name = &name.replace("+", " ");
+    match LANDKREISE.get().unwrap().get(&city_name.to_ascii_lowercase()) {
         Some(city_long_name) => {
             context.insert("city_long_name", &city_long_name);
-            context.insert("city_name", &name);
+            context.insert("city_name", &city_name);
             Template::render("result", &context)
         }
         None => {
