@@ -185,7 +185,6 @@ function twitterShare(event) {
   var shareUrl = shareText.getAttribute('data-url');
   var arguments = new URLSearchParams();
   arguments.set('text', shareText.innerText);
-  arguments.set('via', 'inzidenz.com');
   arguments.set('url', window.location.href);
   arguments.set('hashtags', ['#Corona', 'OpenData']);
   window.open(baseUrl + "?" + arguments.toString());
