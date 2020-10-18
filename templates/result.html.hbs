@@ -10,10 +10,7 @@
     <meta name="description" content="Informationseite, die die 7-Tage-Inzidenz für COVID-19 in {{city_name}} anzeigt." />
     <meta name="keywords" content="Covid Corona {{city_name}} Inzidenz RKI" />
     <title>COVID19 7-Tage-Inzidenz {{city_name}}</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css" />
-  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/luxon@1.25.0/build/global/luxon.min.js"></script>
-  <script src="static/bar.js"></script>
+  <link rel="stylesheet" href="static/css/bulma.min.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
   <style>
     #7days {
@@ -23,15 +20,18 @@
 </head>
 
 <body>
-    <section id="all" class="hero is-fullheight is-bold">
+  <section id="all" class="hero is-fullheight is-bold is-info">
     <div class="hero-body">
       <div class="container box has-text-centered">
-        <h1 class="subtitle has-text-dark pb-5">🦠 COVID-19 7-Tage-Inzidenz
+        <h1 class="has-text-weight-bold is-size-4-touch is-size-2-desktop
+          has-text-dark pb-5">🦠 COVID-19 Inzidenzzahl
           {{city_name}}</h1>
-        <h2 id="7days" class="has-text-dark title is-static"></h2><span class="text">Fälle in den letzten 7 Tagen pro 100.000 Einwohner:innen</span>
+        <h2 id="7days" class="has-text-dark title is-static">
+          ??,??
+        </h2><span class="text">Fälle in den letzten 7 Tagen pro 100.000 Einwohner:innen</span>
         <div class="pt-5">
           <div class="field">
-            <button class="button" id="share-button">
+            <button class="button has-text-black" id="share-button">
               Teilen
             </button>
           </div>
@@ -49,7 +49,32 @@
         </div>
       </div>
     </section>
+    <div id="share-modal" class="modal">
+      <div class="modal-background" onclick="closeShareDialog()"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          Teilen
+        </header>
+        <section class="modal-card-body" id="share-text">
+        </section>
+        <footer class="modal-card-foot">
+          <div class="card-footer-item">
+            <button onclick="twitterShare(event)" class="button">
+              Twitter
+            </button>
+          </div>
+          <div class="card-footer-item">
+            <button class="button" onclick="clipboardShare()">
+              Kopieren
+            </button>
+          </div>
+        </footer>
+      </div>
+    </div>
   </body>
+  <script src="static/axios.min.js"></script>
+  <script src="static/bar.js"></script>
+  <script src="static/luxon.min.js"></script>
   <script>
 topbar.show(); 
 topbar.config({
@@ -65,6 +90,14 @@ topbar.config({
     
 let vh = window.innerHeight * 0.01;
 
+var shareText = document.getElementById('share-text');
+var shareModal = document.getElementById('share-modal');
+
+function closeShareDialog() {
+  shareModal.classList.remove('is-active');
+}
+
+
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
 
@@ -76,6 +109,7 @@ window.addEventListener('resize', () => {
 
     let daysdata;
     var bg = document.getElementById('all');
+
 
     var DateTime = luxon.DateTime;
     axios
@@ -96,6 +130,7 @@ window.addEventListener('resize', () => {
           button.classList.add("is-danger");
         }
         document.getElementById("7days").innerText = daysdata;
+        let body = document.getElementsByTagName('body')[0];
         button.addEventListener("click", event => {
           const url = document.location.href;
           const title = "Inzidenzzahl {{city_name}}";
@@ -107,6 +142,10 @@ Finde jetzt den aktuellen Wert für deinen Ort auf https://inzidenz.com/ und sta
             navigator.share({ url, title, text }).then(() => {
               console.log('Shared worked');
             }).catch(console.error);
+          } else {
+            shareModal.classList.add('is-active');
+            body.classList.add('is-clipped');
+            shareText.innerHTML = text;
           }
         })        
       });
@@ -126,6 +165,51 @@ Finde jetzt den aktuellen Wert für deinen Ort auf https://inzidenz.com/ und sta
         ).toLocaleString({ locale: "de" });
         topbar.hide();
       });
+function clipboardShare(event) {
+  var shareUrl = shareText.getAttribute('data-url');
+  const text = shareText.innerText + ' ' + location.href;
+  if(!navigator.clipboard) {
+    fallbackClipboardShare(text);
+    return;
+  }
+  navigator.clipboard.writeText(text).then(function() {
+    console.log('Copying to clipboard was successful!');
+  }).catch(function() {
+    console.log('Could not copy text: ', err);
+  });
+  closeShareDialog();
+}
+function twitterShare(event) {
+  var baseUrl = 'https://twitter.com/intent/tweet/';
+  var shareUrl = shareText.getAttribute('data-url');
+  var arguments = new URLSearchParams();
+  arguments.set('text', shareText.innerText);
+  arguments.set('via', 'inzidenz.com');
+  arguments.set('url', window.location.href);
+  arguments.set('hashtags', ['#Corona', 'OpenData']);
+  window.open(baseUrl + "?" + arguments.toString());
+  closeShareDialog();
+}
+function fallbackClipboardShare(text) {
+  var textArea = document.createElement("textarea");
+  textArea.value = text;
+  textArea.style.top = "0";
+  textArea.style.left = "0";
+  textArea.style.position = "fixed";
+
+  document.body.appendChild(textArea);
+  textArea.focus();
+  textArea.select();
+
+  try {
+    var successful = document.execCommand('copy');
+    var msg = successful ? 'successful' : 'unsuccessful';
+    console.log('Fallback: Copying text command was ' + msg);
+  } catch (err) {
+    console.error('Fallback: Oops, unable to copy', err);
+  }
+  document.body.removeChild(textArea);
+}
   </script>
   <style>
     html {
