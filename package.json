@@ -5,7 +5,7 @@
   "description": "Statische HTML Seite mit Suchfunktion, die mit den Daten des RKI die 7 Tage Inzidenz für anzeigt. Auf Basis von https://github.com/flomero/7dayserlangen",
   "main": "bar.js",
   "scripts": {
-    "build": "mkdir /tmp/css && purgecss --css static/*.css --content templates/* --output /tmp/css/ && purifycss /tmp/css/* templates/* --info --out static/css/"
+    "build": "mkdir /tmp/css && purgecss --css static/*.css --content templates/* --output static/css/"
   },
   "repository": {
     "type": "git",
@@ -17,9 +17,6 @@
     "url": "https://github.com/flomero/7tageinzidenz/issues"
   },
   "homepage": "https://github.com/flomero/7tageinzidenz#readme",
-  "dependencies": {
-    "purgecss": "^3.0.0"
-  },
   "devDependencies": {
     "purifycss": "^1.2.6"
   }
