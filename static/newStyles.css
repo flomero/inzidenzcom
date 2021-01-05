@@ -1,0 +1,199 @@
+.button.is-moredanger {
+  background-color: #5c164e;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-moredanger.is-hovered,
+.button.is-moredanger:hover {
+  background-color: #4e1342;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-moredanger.is-focused,
+.button.is-moredanger:focus {
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-moredanger.is-focused:not(:active),
+.button.is-moredanger:focus:not(:active) {
+  box-shadow: 0 0 0 0.125em rgba(241, 70, 104, 0.25);
+}
+.button.is-moredanger.is-active,
+.button.is-moredanger:active {
+  background-color: #46113b;
+  border-color: transparent;
+  color: #fff;
+}
+.button.is-moredanger[disabled],
+fieldset[disabled] .button.is-moredanger {
+  background-color: #5c164e;
+  border-color: transparent;
+  box-shadow: none;
+}
+.button.is-moredanger.is-inverted {
+  background-color: #fff;
+  color: #5c164e;
+}
+.button.is-moredanger.is-inverted.is-hovered,
+.button.is-moredanger.is-inverted:hover {
+  background-color: #f2f2f2;
+}
+.button.is-moredanger.is-inverted[disabled],
+fieldset[disabled] .button.is-moredanger.is-inverted {
+  background-color: #fff;
+  border-color: transparent;
+  box-shadow: none;
+  color: #5c164e;
+}
+.button.is-moredanger.is-loading::after {
+  border-color: transparent transparent #fff #fff !important;
+}
+.button.is-moredanger.is-outlined {
+  background-color: transparent;
+  border-color: #5c164e;
+  color: #5c164e;
+}
+.button.is-moredanger.is-outlined.is-focused,
+.button.is-moredanger.is-outlined.is-hovered,
+.button.is-moredanger.is-outlined:focus,
+.button.is-moredanger.is-outlined:hover {
+  background-color: #5c164e;
+  border-color: #5c164e;
+  color: #fff;
+}
+.button.is-moredanger.is-outlined.is-loading::after {
+  border-color: transparent transparent #5c164e #5c164e !important;
+}
+.button.is-moredanger.is-outlined.is-loading.is-focused::after,
+.button.is-moredanger.is-outlined.is-loading.is-hovered::after,
+.button.is-moredanger.is-outlined.is-loading:focus::after,
+.button.is-moredanger.is-outlined.is-loading:hover::after {
+  border-color: transparent transparent #fff #fff !important;
+}
+.button.is-moredanger.is-outlined[disabled],
+fieldset[disabled] .button.is-moredanger.is-outlined {
+  background-color: transparent;
+  border-color: #5c164e;
+  box-shadow: none;
+  color: #5c164e;
+}
+.button.is-moredanger.is-inverted.is-outlined {
+  background-color: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.button.is-moredanger.is-inverted.is-outlined.is-focused,
+.button.is-moredanger.is-inverted.is-outlined.is-hovered,
+.button.is-moredanger.is-inverted.is-outlined:focus,
+.button.is-moredanger.is-inverted.is-outlined:hover {
+  background-color: #fff;
+  color: #5c164e;
+}
+.button.is-moredanger.is-inverted.is-outlined.is-loading.is-focused::after,
+.button.is-moredanger.is-inverted.is-outlined.is-loading.is-hovered::after,
+.button.is-moredanger.is-inverted.is-outlined.is-loading:focus::after,
+.button.is-moredanger.is-inverted.is-outlined.is-loading:hover::after {
+  border-color: transparent transparent #5c164e #5c164e !important;
+}
+.button.is-moredanger.is-inverted.is-outlined[disabled],
+fieldset[disabled] .button.is-moredanger.is-inverted.is-outlined {
+  background-color: transparent;
+  border-color: #fff;
+  box-shadow: none;
+  color: #fff;
+}
+.button.is-moredanger.is-light {
+  background-color: #feecf0;
+  color: #cc0f35;
+}
+.button.is-moredanger.is-light.is-hovered,
+.button.is-moredanger.is-light:hover {
+  background-color: #fde0e6;
+  border-color: transparent;
+  color: #cc0f35;
+}
+.button.is-moredanger.is-light.is-active,
+.button.is-moredanger.is-light:active {
+  background-color: #fcd4dc;
+  border-color: transparent;
+  color: #cc0f35;
+}
+.hero.is-moredanger {
+  background-color: #5c164e;
+  color: #fff;
+}
+.hero.is-moredanger
+  a:not(.button):not(.dropdown-item):not(.tag):not(.pagination-link.is-current),
+.hero.is-moredanger strong {
+  color: inherit;
+}
+.hero.is-moredanger .title {
+  color: #fff;
+}
+.hero.is-moredanger .subtitle {
+  color: rgba(255, 255, 255, 0.9);
+}
+.hero.is-moredanger .subtitle a:not(.button),
+.hero.is-moredanger .subtitle strong {
+  color: #fff;
+}
+@media screen and (max-width: 1023px) {
+  .hero.is-moredanger .navbar-menu {
+    background-color: #5c164e;
+  }
+}
+.hero.is-moredanger .navbar-item,
+.hero.is-moredanger .navbar-link {
+  color: rgba(255, 255, 255, 0.7);
+}
+.hero.is-moredanger .navbar-link.is-active,
+.hero.is-moredanger .navbar-link:hover,
+.hero.is-moredanger a.navbar-item.is-active,
+.hero.is-moredanger a.navbar-item:hover {
+  background-color: #46113b;
+  color: #fff;
+}
+.hero.is-moredanger .tabs a {
+  color: #fff;
+  opacity: 0.9;
+}
+.hero.is-moredanger .tabs a:hover {
+  opacity: 1;
+}
+.hero.is-moredanger .tabs li.is-active a {
+  opacity: 1;
+}
+.hero.is-moredanger .tabs.is-boxed a,
+.hero.is-moredanger .tabs.is-toggle a {
+  color: #fff;
+}
+.hero.is-moredanger .tabs.is-boxed a:hover,
+.hero.is-moredanger .tabs.is-toggle a:hover {
+  background-color: rgba(10, 10, 10, 0.1);
+}
+.hero.is-moredanger .tabs.is-boxed li.is-active a,
+.hero.is-moredanger .tabs.is-boxed li.is-active a:hover,
+.hero.is-moredanger .tabs.is-toggle li.is-active a,
+.hero.is-moredanger .tabs.is-toggle li.is-active a:hover {
+  background-color: #fff;
+  border-color: #fff;
+  color: #5c164e;
+}
+.hero.is-moredanger.is-bold {
+  background-image: linear-gradient(
+    141deg,
+    #a1388c 0,
+    #5c164e 71%,
+    #420b37 100%
+  );
+}
+@media screen and (max-width: 768px) {
+  .hero.is-moredanger.is-bold .navbar-menu {
+    background-image: linear-gradient(
+      141deg,
+      #a1388c 0,
+      #5c164e 71%,
+      #420b37 100%
+    );
+  }
+}
