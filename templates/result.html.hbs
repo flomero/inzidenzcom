@@ -5,39 +5,40 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Pragma" content="no-cache" />
-    <meta name="robots" content="INDEX,FOLLOW" />
-    <meta http-equiv="content-Language" content="de" />
-    <meta name="description" content="Informationseite, die die 7-Tage-Inzidenz für COVID-19 in {{city_name}} anzeigt." />
-    <meta name="keywords" content="Covid Corona {{city_name}} Inzidenz RKI" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Inzidenz.com – COVID-19-Inzidenz {{city_name}}" />
-    <meta name="twitter:description" content="Einfach die 7-Tage-Corona-Inzidenz für {{city_name}} herausfinden!" />
-    <meta name="twitter:image" content="https://inzidenz.com/static/twitterpreview.png" />
-    <meta property="og:image" content="https://inzidenz.com/static/twitterpreview.png" />
-    <title>COVID19 7-Tage-Inzidenz {{city_name}}</title>
+  <meta name="robots" content="INDEX,FOLLOW" />
+  <meta http-equiv="content-Language" content="de" />
+  <meta name="description" content="Informationseite, die die 7-Tage-Inzidenz für COVID-19 in {{city_name}} anzeigt." />
+  <meta name="keywords" content="Covid Corona {{city_name}} Inzidenz RKI" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Inzidenz.com – COVID-19-Inzidenz {{city_name}}" />
+  <meta name="twitter:description" content="Einfach die 7-Tage-Corona-Inzidenz für {{city_name}} herausfinden!" />
+  <meta name="twitter:image" content="https://inzidenz.com/static/twitterpreview.png" />
+  <meta property="og:image" content="https://inzidenz.com/static/twitterpreview.png" />
+  <title>COVID19 7-Tage-Inzidenz {{city_name}}</title>
   <link rel="stylesheet" href="static/css/bulma.min.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
+  <link rel="stylesheet" href="static/css/newStyles.css">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🦠</text></svg>">
   <style>
     #7days {
       font-size: 56pt;
     }
-  
   </style>
-<!-- Matomo -->
-<script type="text/javascript">
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="https://analytics.websiteag.lol/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '2']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
-<!-- End Matomo Code -->
+  <!-- Matomo -->
+  <script type="text/javascript">
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function () {
+      var u = "https://analytics.websiteag.lol/";
+      _paq.push(['setTrackerUrl', u + 'matomo.php']);
+      _paq.push(['setSiteId', '2']);
+      var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+      g.type = 'text/javascript'; g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+    })();
+  </script>
+  <!-- End Matomo Code -->
 </head>
 
 <body>
@@ -64,183 +65,187 @@
           <p class="column">
             Alle Angaben ohne Gewähr,
             Quelle:
-            <a href="https://www.rki.de/DE/Home/homepage_node.html"
-              rel="noopener" target="_blank">RKI</a>
+            <a href="https://www.rki.de/DE/Home/homepage_node.html" rel="noopener" target="_blank">RKI</a>
           </p>
           <p class="column">Stand: <span id="date"> </span></p>
         </div>
       </div>
-    </section>
-    <div id="share-modal" class="modal">
-      <div class="modal-background" onclick="closeShareDialog()"></div>
-      <div class="modal-card">
-        <header class="modal-card-head">
-          Teilen
-        </header>
-        <section class="modal-card-body" id="share-text">
-        </section>
-        <footer class="modal-card-foot">
-          <div class="card-footer-item">
-            <button onclick="twitterShare(event)" class="button">
-              Twitter
-            </button>
-          </div>
-          <div class="card-footer-item">
-            <button class="button" onclick="clipboardShare()">
-              Kopieren
-            </button>
-          </div>
-        </footer>
-      </div>
+  </section>
+  <div id="share-modal" class="modal">
+    <div class="modal-background" onclick="closeShareDialog()"></div>
+    <div class="modal-card">
+      <header class="modal-card-head">
+        Teilen
+      </header>
+      <section class="modal-card-body" id="share-text">
+      </section>
+      <footer class="modal-card-foot">
+        <div class="card-footer-item">
+          <button onclick="twitterShare(event)" class="button">
+            Twitter
+          </button>
+        </div>
+        <div class="card-footer-item">
+          <button class="button" onclick="clipboardShare()">
+            Kopieren
+          </button>
+        </div>
+      </footer>
     </div>
-  </body>
-  <script src="static/axios.min.js"></script>
-  <script src="static/bar.js"></script>
-  <script src="static/luxon.min.js"></script>
-  <script>
-topbar.show(); 
-topbar.config({
-  barThickness: 5,
-  barColors: {
-    0: "rgba(1,  188, 188, .7)",
-    ".3": "rgba(31,  128, 185, .7)",
-    "1.0": "rgba(26,  188, 156, .7)",
-  },
-});
-
-
-    
-let vh = window.innerHeight * 0.01;
-
-var shareText = document.getElementById('share-text');
-var shareModal = document.getElementById('share-modal');
-
-function closeShareDialog() {
-  shareModal.classList.remove('is-active');
-}
-
-
-document.documentElement.style.setProperty('--vh', `${vh}px`);
-
-
-window.addEventListener('resize', () => {
-  
-  let vh = window.innerHeight * 0.01;
-  document.documentElement.style.setProperty('--vh', `${vh}px`);
-});
-
-    let daysdata;
-    var bg = document.getElementById('all');
-
-
-    var DateTime = luxon.DateTime;
-    axios
-      .get(
-        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q={{city_long_name}}&rows=10&facet=last_update&facet=name"
-      )
-      .then((res) => {
-        let button = document.getElementById('share-button');
-        daysdata = res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".",",");
-        if (parseInt(daysdata) <= 35) {
-          bg.classList.add("is-success");
-          button.classList.add("is-success");
-        } else if (parseInt(daysdata) <= 50){
-          bg.classList.add("is-warning");
-          button.classList.add("is-warning");
-        } else {
-          bg.classList.add("is-danger");
-          button.classList.add("is-danger");
-        }
-        document.getElementById("7days").innerText = daysdata;
-        let body = document.getElementsByTagName('body')[0];
-        button.addEventListener("click", event => {
-          const url = document.location.href;
-          const title = "Inzidenzzahl {{city_name}}";
-          const nice_date = DateTime.fromISO(date).toLocaleString({ locale: "de" });
-          const text =
-`${daysdata} ist die aktuelle Inzidenzzahl für {{city_name}} (${nice_date}) 🦠
-Finde jetzt den aktuellen Wert für deinen Ort auf https://inzidenz.com/ und stay safe! 😷💙`;
-          if (navigator.share) {
-            navigator.share({ url, title, text }).then(() => {
-              console.log('Shared worked');
-            }).catch(console.error);
-          } else {
-            shareModal.classList.add('is-active');
-            body.classList.add('is-clipped');
-            shareText.innerHTML = text;
-          }
-        })        
-      });
-
-    let date;
-
-    axios
-      .get(
-        "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
-      )
-      .then((res) => {
-        date = res.data.records[0].fields.last_update;
-        console.log(date);
-
-        document.getElementById("date").innerText = DateTime.fromISO(
-          date
-        ).toLocaleString({ locale: "de" });
-        topbar.hide();
-      });
-function clipboardShare(event) {
-  var shareUrl = shareText.getAttribute('data-url');
-  const text = shareText.innerText + ' ' + location.href;
-  if(!navigator.clipboard) {
-    fallbackClipboardShare(text);
-    return;
-  }
-  navigator.clipboard.writeText(text).then(function() {
-    console.log('Copying to clipboard was successful!');
-  }).catch(function() {
-    console.log('Could not copy text: ', err);
+  </div>
+</body>
+<script src="static/axios.min.js"></script>
+<script src="static/bar.js"></script>
+<script src="static/luxon.min.js"></script>
+<script>
+  topbar.show();
+  topbar.config({
+    barThickness: 5,
+    barColors: {
+      0: "rgba(1,  188, 188, .7)",
+      ".3": "rgba(31,  128, 185, .7)",
+      "1.0": "rgba(26,  188, 156, .7)",
+    },
   });
-  closeShareDialog();
-}
-function twitterShare(event) {
-  var baseUrl = 'https://twitter.com/intent/tweet/';
-  var shareUrl = shareText.getAttribute('data-url');
-  var arguments = new URLSearchParams();
-  arguments.set('text', shareText.innerText);
-  arguments.set('url', window.location.href);
-  arguments.set('hashtags', ['#Corona', 'OpenData']);
-  window.open(baseUrl + "?" + arguments.toString());
-  closeShareDialog();
-}
-function fallbackClipboardShare(text) {
-  var textArea = document.createElement("textarea");
-  textArea.value = text;
-  textArea.style.top = "0";
-  textArea.style.left = "0";
-  textArea.style.position = "fixed";
 
-  document.body.appendChild(textArea);
-  textArea.focus();
-  textArea.select();
 
-  try {
-    var successful = document.execCommand('copy');
-    var msg = successful ? 'successful' : 'unsuccessful';
-    console.log('Fallback: Copying text command was ' + msg);
-  } catch (err) {
-    console.error('Fallback: Oops, unable to copy', err);
+
+  let vh = window.innerHeight * 0.01;
+
+  var shareText = document.getElementById('share-text');
+  var shareModal = document.getElementById('share-modal');
+
+  function closeShareDialog() {
+    shareModal.classList.remove('is-active');
   }
-  document.body.removeChild(textArea);
-}
-  </script>
-  <style>
-    html {
-  height: 100vh; 
-  height: calc(var(--vh, 1vh) * 100);
-}
-.hero.is-fullheight {
-  min-height: calc(var(--vh, 1vh) * 100) !important;
-}
-  </style>
+
+
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+
+  window.addEventListener('resize', () => {
+
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+  });
+
+  let daysdata;
+  var bg = document.getElementById('all');
+
+
+  var DateTime = luxon.DateTime;
+  axios
+    .get(
+      "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q={{city_long_name}}&rows=10&facet=last_update&facet=name"
+    )
+    .then((res) => {
+      let button = document.getElementById('share-button');
+      daysdata = res.data.records[0].fields.cases7_per_100k.toFixed(2).replace(".", ",");
+      if (parseInt(daysdata) <= 35) {
+        bg.classList.add("is-success");
+        button.classList.add("is-success");
+      } else if (parseInt(daysdata) <= 50) {
+        bg.classList.add("is-warning");
+        button.classList.add("is-warning");
+      } else if (parseInt(daysdata) <= 200) {
+        bg.classList.add("is-danger");
+        button.classList.add("is-danger");
+      } else {
+        bg.classList.add("is-moredanger");
+        button.classList.add("is-moredanger");
+      }
+      document.getElementById("7days").innerText = daysdata;
+      let body = document.getElementsByTagName('body')[0];
+      button.addEventListener("click", event => {
+        const url = document.location.href;
+        const title = "Inzidenzzahl {{city_name}}";
+        const nice_date = DateTime.fromISO(date).toLocaleString({ locale: "de" });
+        const text =
+          `${daysdata} ist die aktuelle Inzidenzzahl für {{city_name}} (${nice_date}) 🦠
+Finde jetzt den aktuellen Wert für deinen Ort auf https://inzidenz.com/ und stay safe! 😷💙`;
+        if (navigator.share) {
+          navigator.share({ url, title, text }).then(() => {
+            console.log('Shared worked');
+          }).catch(console.error);
+        } else {
+          shareModal.classList.add('is-active');
+          body.classList.add('is-clipped');
+          shareText.innerHTML = text;
+        }
+      })
+    });
+
+  let date;
+
+  axios
+    .get(
+      "https://public.opendatasoft.com/api/records/1.0/search/?dataset=covid-19-germany-landkreise&q=SK+Erlangen&rows=10&facet=last_update&facet=name"
+    )
+    .then((res) => {
+      date = res.data.records[0].fields.last_update;
+      console.log(date);
+
+      document.getElementById("date").innerText = DateTime.fromISO(
+        date
+      ).toLocaleString({ locale: "de" });
+      topbar.hide();
+    });
+  function clipboardShare(event) {
+    var shareUrl = shareText.getAttribute('data-url');
+    const text = shareText.innerText + ' ' + location.href;
+    if (!navigator.clipboard) {
+      fallbackClipboardShare(text);
+      return;
+    }
+    navigator.clipboard.writeText(text).then(function () {
+      console.log('Copying to clipboard was successful!');
+    }).catch(function () {
+      console.log('Could not copy text: ', err);
+    });
+    closeShareDialog();
+  }
+  function twitterShare(event) {
+    var baseUrl = 'https://twitter.com/intent/tweet/';
+    var shareUrl = shareText.getAttribute('data-url');
+    var arguments = new URLSearchParams();
+    arguments.set('text', shareText.innerText);
+    arguments.set('url', window.location.href);
+    arguments.set('hashtags', ['#Corona', 'OpenData']);
+    window.open(baseUrl + "?" + arguments.toString());
+    closeShareDialog();
+  }
+  function fallbackClipboardShare(text) {
+    var textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.style.top = "0";
+    textArea.style.left = "0";
+    textArea.style.position = "fixed";
+
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    try {
+      var successful = document.execCommand('copy');
+      var msg = successful ? 'successful' : 'unsuccessful';
+      console.log('Fallback: Copying text command was ' + msg);
+    } catch (err) {
+      console.error('Fallback: Oops, unable to copy', err);
+    }
+    document.body.removeChild(textArea);
+  }
+</script>
+<style>
+  html {
+    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
+  }
+
+  .hero.is-fullheight {
+    min-height: calc(var(--vh, 1vh) * 100) !important;
+  }
+</style>
 
 </body>
+
 </html>
