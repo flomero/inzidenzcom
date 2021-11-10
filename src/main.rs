@@ -1,11 +1,7 @@
-#![feature(proc_macro_hygiene, decl_macro)]
-
 use std::fs::File;
 use std::io::BufReader;
-use rocket_contrib::{
-    templates::Template,
-    serve::StaticFiles,
-};
+use rocket::fs::FileServer;
+use rocket_dyn_templates::Template;
 use std::collections::HashMap;
 use once_cell::sync::OnceCell;
 use serde::Deserialize;
@@ -44,7 +40,9 @@ struct Entry {
     #[serde(rename="Short name")]
     long_name: String,
 }
-fn main() {
+
+#[tokio::main]
+async fn main() {
     let landkreise_file = BufReader::new(File::open("static/landkreise.json").unwrap());
     LANDKREISE
         .set(
@@ -54,9 +52,11 @@ fn main() {
                 .map(|entry| (entry.name.to_ascii_lowercase(), entry.long_name)).collect())
         .unwrap();
 
-    rocket::ignite()
+    rocket::build()
         .attach(Template::fairing())
-        .mount("/static", StaticFiles::from("static"))
+        .mount("/static", FileServer::from("static"))
         .mount("/", routes![search_form, show_inzidenz])
-        .launch();
+        .launch()
+        .await
+        .unwrap();
 }
